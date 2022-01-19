@@ -29,7 +29,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 3. What is Ruby on Rails?
 
   Your answer:
-    Ruby on rails is the back-end framework used for the development and maintenance of websites.
+    Ruby on rails is the full stack framework used for the development and maintenance of websites.
 
   Researched answer:
     Rails is a server-side open source object oriented programming language framework for web development.
