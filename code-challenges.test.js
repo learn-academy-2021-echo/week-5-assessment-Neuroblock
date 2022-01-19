@@ -22,6 +22,28 @@ const secretCodeWord2 = "Gobbledygook"
 const secretCodeWord3 = "Eccentric"
 // Expected output: "3cc3ntr1c"
 
+// a describe method that lists the name of the function OR naming of the particular test.
+describe("secretCodedWord1", () => {
+
+    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
+    it("returns a coded string", () => {
+
+        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
+        expect(secretCodeWord1()).toEqual("L4ck4d41s1c4l")
+    })
+})
+
+describe("secretCodedWord2", () => {
+    it("returns a coded string", () => {
+        expect(secretCodeWord2()).toEqual("G0bbl3dyg00k")
+    })
+})
+
+describe("secretCodedWord3", () => {
+    it("returns a coded string", () => {
+        expect(secretCodeWord3()).toEqual("3cc3ntr1c")
+    })
+})
 
 
 // b) Create the function that makes the test pass.
@@ -39,9 +61,31 @@ const arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
 const letterE = "e"
 // Expected output: ["Cherry", "Blueberry", "Peach"]
 
+// a describe method that lists the name of the function OR naming of the particular test.
+describe("arrayOfWords1", () => {
 
+    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
+    it("takes in an array of words and a single letter and returns all the words that contain that particular lettei", () => {
+
+        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
+        expect(arrayOfWords1()).toEqual(["Apple", "Banana", "Orange"])
+    })
+})
+
+describe("arrayOfWords2", () => {
+    it("takes in an array of words and a single letter and returns all the words that contain that particular lettei", () => {
+        expect(arrayOfWords2()).toEqual(["Cherry", "Blueberry", "Peach"])
+    })
+})
 
 // b) Create the function that makes the test pass.
+
+//found the example in stack overflow but I am still having trouible with the coding process.
+//The material presented to us is starting to make sense, but i still have more work to do, my learning this time has slowed down and i am worried of being dead weight when the capstone roles in.
+
+def finder(array, thing_to_find)
+array.select { | word | word.include ? thing_to_find }
+end
 
 
 
@@ -56,6 +100,28 @@ const hand2 = [5, 5, 3, 3, 4]
 const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 
+// a describe method that lists the name of the function OR naming of the particular test.
+describe("hand1", () => {
+
+    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
+    it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
+
+        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
+        expect(hand1()).toEqual("true")
+    })
+})
+
+describe("hand2", () => {
+    it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
+        expect(hand2()).toEqual("false")
+    })
+})
+
+describe("hand3", () => {
+    it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
+        expect(hand3()).toEqual("false")
+    })
+})
 
 
 // b) Create the function that makes the test pass.
