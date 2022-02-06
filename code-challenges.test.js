@@ -22,25 +22,10 @@ const secretCodeWord2 = "Gobbledygook"
 const secretCodeWord3 = "Eccentric"
 // Expected output: "3cc3ntr1c"
 
-// a describe method that lists the name of the function OR naming of the particular test.
-describe("secretCodedWord1", () => {
-
-    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
+describe("secretCodedWord", () => {
     it("returns a coded string", () => {
-
-        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
         expect(secretCodeWord1()).toEqual("L4ck4d41s1c4l")
-    })
-})
-
-describe("secretCodedWord2", () => {
-    it("returns a coded string", () => {
         expect(secretCodeWord2()).toEqual("G0bbl3dyg00k")
-    })
-})
-
-describe("secretCodedWord3", () => {
-    it("returns a coded string", () => {
         expect(secretCodeWord3()).toEqual("3cc3ntr1c")
     })
 })
@@ -48,6 +33,36 @@ describe("secretCodedWord3", () => {
 
 // b) Create the function that makes the test pass.
 
+//    PSEUDO    //
+
+// Create a function that passes a string and splits it into an array
+// Map through the array to identify a vowel.
+// Convert the vowel in to its corresponding nimber given above
+// join the array into a string
+
+const codedMessage = (string) => {
+    let stringArray = string.split("")
+    let code = stringArray.map((value, index, array) => {
+        if(value.toLowerCase() === 'a'){
+            return 4
+        }
+        else if(value.toLowerCase() === 'e'){
+            return 3
+        }
+        else if(value.toLowerCase() ==='i'){
+            return 1
+        }
+        else if(value.toLowerCase() === 'o'){
+            return 0
+        }
+        else{
+            return value
+        }
+    })
+
+    return code.join("")
+}
+        
 
 
 // --------------------2) Create a function that takes in an array of words and a single letter and returns all the words that contain that particular letter.
@@ -61,32 +76,29 @@ const arrayOfWords2 = ["Mango", "Cherry", "Apricot", "Blueberry", "Peach"]
 const letterE = "e"
 // Expected output: ["Cherry", "Blueberry", "Peach"]
 
-// a describe method that lists the name of the function OR naming of the particular test.
-describe("arrayOfWords1", () => {
-
-    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
-    it("takes in an array of words and a single letter and returns all the words that contain that particular lettei", () => {
-
-        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
-        expect(arrayOfWords1()).toEqual(["Apple", "Banana", "Orange"])
-    })
-})
-
-describe("arrayOfWords2", () => {
-    it("takes in an array of words and a single letter and returns all the words that contain that particular lettei", () => {
-        expect(arrayOfWords2()).toEqual(["Cherry", "Blueberry", "Peach"])
+describe("filterWords", () => {
+     it("takes in an array of words and a single letter and returns all the words that contain that particular letter", () => {
+        expect(filterWords(arrayOfWords1, letterA)).toEqual(["Apple", "Banana", "Orange"])
+        expect(filterWords(arrayOfWords2, letterE)).toEqual(["Mango", "Cherry", "Apricot", "Blueberry", "Peach"])
     })
 })
 
 // b) Create the function that makes the test pass.
 
-//found the example in stack overflow but I am still having trouible with the coding process.
-//The material presented to us is starting to make sense, but i still have more work to do, my learning this time has slowed down and i am worried of being dead weight when the capstone roles in.
 
-def finder(array, thing_to_find)
-array.select { | word | word.include ? thing_to_find }
-end
+//    PSEUDO    ??
 
+// -Input an array and a single letter, the output is an array of the words containing the single letter
+// -Perform a .filter() to filter out the elements containing the string letter input
+// -Use .includes() to check for the string letter in the .filter function.
+
+const filterWords = (arrayOfWords, letter) => {
+    newArray = arrayOfWords.filter(value => {
+
+        return  value.includes(letter) || value.includes(letter.toUpperCase())
+    })
+    return newArray
+}
 
 
 // --------------------3) Create a function that takes in an array of 5 numbers and determines whether or not the array is a “full house”. A full house is exactly one pair and one three of a kind.
@@ -100,28 +112,38 @@ const hand2 = [5, 5, 3, 3, 4]
 const hand3 = [5, 5, 5, 5, 4]
 // Expected output: false
 
-// a describe method that lists the name of the function OR naming of the particular test.
-describe("hand1", () => {
-
-    // a test/it method, nested within the describe block, that in plain words, describes that the function does.
+describe("fullHouse", () => {
     it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
-
-        //an expect method, nested within the test block, calling on the hello() function, followed by the .toEqual() matcher that checks the expected output of the function return.
-        expect(hand1()).toEqual("true")
+        expect(fullHouse(hand1)).toEqual(true)
+        expect(fullHouse(hand2)).toEqual(false)
+        expect(fullHouse(hand3)).toEqual(false)
     })
 })
-
-describe("hand2", () => {
-    it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
-        expect(hand2()).toEqual("false")
-    })
-})
-
-describe("hand3", () => {
-    it("takes in an array of 5 numbers and determines whether or not the array is a “full house", () => {
-        expect(hand3()).toEqual("false")
-    })
-})
-
 
 // b) Create the function that makes the test pass.
+
+
+//     PSEUDO   //
+// Input an array in a function that checks for a value that is repeated 2 or 3 times.
+// Output a boollean value of true or false.
+// Perform a .reducer to check and track number of times a value is repeated
+// Use Object.values to convert the object values from reduce to an array
+// Check if the output array contains a 2 && 3. if statements
+
+const fullHouse = (hand) => {
+    let tracker = hand.reduce((uniqueValues,currentValue)=>{
+        if(uniqueValues[currentValue]){
+            uniqueValues[currentValue] = uniqueValues[currentValue] + 1
+        }
+        else{
+            uniqueValues[currentValue] = 1
+        }
+        return uniqueValues
+    },{})
+    if(Object.values(tracker).includes(2) && Object.values(tracker).includes(3)){
+        return true
+    }
+    else{
+        return false
+    }
+}
